@@ -9,11 +9,18 @@
   "license": "MIT",
   "devDependencies": {
     "grunt": "^1.0.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-exec": "^0.4.6",
+    "grunt-ts": "^5.5.0-beta.2",
+    "grunt-tslint": "^3.0.3",
+    "grunt-webpack": "^1.0.11",
     "load-grunt-config": "^0.19.1",
     "tslint": "^3.7.4",
-    "typescript": "^1.8.10"
+    "typescript": "^1.8.10",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
   },
   "files": [
-    "dist"
+    "build"
   ]
 }

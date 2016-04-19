@@ -2,7 +2,8 @@ bower_components/
 node_modules/
 
 # Generated content
-dist/
+build/
+references.ts
 
 .tscache/
 *.swp
