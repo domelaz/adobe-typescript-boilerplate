@@ -7,6 +7,9 @@
   },
   "author": "",
   "license": "MIT",
+  "devDependencies": {
+    "typescript": "^1.8.10"
+  },
   "files": [
     "dist"
   ]
