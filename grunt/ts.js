@@ -5,6 +5,7 @@ module.exports = {
     options: {
       module: "commonjs",
       noImplicitAny: false,
+      noLib: true,
       sourceMap: false,
       target: "<%= jsxTarget %>",
     },
