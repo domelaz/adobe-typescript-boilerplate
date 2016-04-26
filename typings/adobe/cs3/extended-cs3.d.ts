@@ -1,4 +1,69 @@
 /**
+ * Dollar object
+ */
+declare var $: {
+  build: number;
+  buildDate: Date;
+  engine: string;
+  error: Error | string;
+  fileName: string;
+  flags: number;
+  // @fixme global: Global;
+  includePath: string;
+  level: number;
+  locale: string;
+  localize: boolean;
+  memCache: number;
+  os: string;
+  // @fixme screens: number[];
+  stack: string;
+  strict: boolean;
+  version: string;
+  about(): string;
+  bp(condition?: string): void;
+  // @fixme colorPicker(): number;
+  evalFile(path: string, timeout?: number): any;
+  gc(): void;
+  getenv(name: string): string;
+  setenv(name: string, value: string): void;
+  sleep(milliseconds: number): void;
+  write(message?: any, ...optionalParams: any[]): void;
+  writeln(message?: any, ...optionalParams: any[]): void;
+}
+
+/**
+ * External Communication Tools
+ */
+declare var ExternalObject: {
+  new(path: string): void;
+}
+
+interface HttpConnectionInstance {
+  async: boolean;
+  close(): boolean;
+  execute(): boolean;
+  pump(): boolean;
+  status: number;
+}
+
+interface HttpConnectionConstructor extends HttpConnectionStatus {
+  (url?: string): HttpConnectionInstance;
+  new (url?: string): HttpConnectionInstance;
+  prototype: HttpConnectionInstance;
+}
+
+interface HttpConnectionStatus {
+  statusCompleted: boolean;
+  statusIdle: boolean;
+  statusRunning: boolean;
+  statusSuspended: boolean;
+  statusFailed: boolean;
+}
+
+declare var HttpConnection: HttpConnectionConstructor;
+
+
+/**
  * Extended types definitions, used across different Adobe applications
  *
  * @see Illustrator CS3 JavaScript Reference.pdf
@@ -71,6 +136,9 @@ interface FileConstructor extends FileStatic {
 
 declare var File: FileConstructor;
 
+/**
+ * Folder Object
+ */
 interface FolderStatic {
 }
 
@@ -86,36 +154,6 @@ interface FolderConstructor extends FolderStatic {
 
 declare var Folder: FolderConstructor;
 
-/**
- * External Communication Tools
- */
-declare var ExternalObject: {
-  new(path: string): void;
-}
-
-interface HttpConnectionInstance {
-  async: boolean;
-  close(): boolean;
-  execute(): boolean;
-  pump(): boolean;
-  status: number;
-}
-
-interface HttpConnectionConstructor extends HttpConnectionStatus {
-  (url?: string): HttpConnectionInstance;
-  new (url?: string): HttpConnectionInstance;
-  prototype: HttpConnectionInstance;
-}
-
-interface HttpConnectionStatus {
-  statusCompleted: boolean;
-  statusIdle: boolean;
-  statusRunning: boolean;
-  statusSuspended: boolean;
-  statusFailed: boolean;
-}
-
-declare var HttpConnection: HttpConnectionConstructor;
 
 /**
  * User Notification Dialogs
@@ -123,36 +161,3 @@ declare var HttpConnection: HttpConnectionConstructor;
 declare function alert(message: string, title?: string, errorIcon?: boolean): void;
 declare function confirm(message: string, noAsDflt?: boolean, title?: string): boolean;
 declare function prompt(mmessage: string, preset: string, title?: string): string | void;
-
-/**
- * Dollar object
- */
-declare var $: {
-  build: number;
-  buildDate: Date;
-  engine: string;
-  error: Error | string;
-  fileName: string;
-  flags: number;
-  // @fixme global: Global;
-  includePath: string;
-  level: number;
-  locale: string;
-  localize: boolean;
-  memCache: number;
-  os: string;
-  // @fixme screens: number[];
-  stack: string;
-  strict: boolean;
-  version: string;
-  about(): string;
-  bp(condition?: string): void;
-  // @fixme colorPicker(): number;
-  evalFile(path: string, timeout?: number): any;
-  gc(): void;
-  getenv(name: string): string;
-  setenv(name: string, value: string): void;
-  sleep(milliseconds: number): void;
-  write(message?: any, ...optionalParams: any[]): void;
-  writeln(message?: any, ...optionalParams: any[]): void;
-}
